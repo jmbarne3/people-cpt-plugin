@@ -133,6 +133,18 @@ if ( ! class_exists( 'JMB_People_PostType' ) ) {
                     'title'  => 'Person Fields',
                     'fields' => array(
                         array(
+                            'key'           => 'field_jmb_person_portrait',
+                            'label'         => 'Portrait',
+                            'name'          => 'person_portrait',
+                            'type'          => 'image',
+                            'instructions'  => 'the image to display for the person\'s profile image.',
+                            'return_format' => 'id',
+                            'preview_size'  => 'medium',
+                            'library'       => 'all',
+                            'min_width'     => '300px',
+                            'min_height'    => '300px'
+                        ),
+                        array(
                             'key'           => 'field_jmb_person_title',
                             'label'         => 'Title',
                             'name'          => 'person_title',
@@ -156,7 +168,7 @@ if ( ! class_exists( 'JMB_People_PostType' ) ) {
                             'type'         => 'url',
                             'instructions' => 'Enter the URL of the twitter profile of the person. Can be left blank.',
                             'required'     => 0,
-                        ),
+                        )
                     ),
                     'location' => array(
                         array(
@@ -180,9 +192,10 @@ if ( ! class_exists( 'JMB_People_PostType' ) ) {
          */
         public static function add_meta_data( $posts ) {
             foreach( $posts as $post ) {
-                $post->people_title           = get_post_meta( $post->ID, 'people_title', true );
-                $post->people_email           = get_post_meta( $post->ID, 'people_email', true );
-                $post->people_twitter_profile = get_post_meta( $post->ID, 'people_twitter_profile', true );
+                $post->person_title           = get_post_meta( $post->ID, 'person_title', true );
+                $post->person_email           = get_post_meta( $post->ID, 'person_email', true );
+                $post->person_twitter_profile = get_post_meta( $post->ID, 'person_twitter_profile', true );
+                $post->person_portrait        = get_post_meta( $post->ID, 'person_portrait', true );
             }
 
             return $posts;

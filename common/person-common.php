@@ -29,8 +29,8 @@ if ( ! class_exists( 'JMB_Person_Common' ) ) {
             ob_start();
         ?>
             <div class="card mb-4 h-100">
-                <?php if ( $person->thunbnail ) : ?>
-                    <img class="card-img-top" src="<?php echo $person->thumbnail; ?>">
+                <?php if ( $person->person_portrait ) : ?>
+                    <img class="card-img-top" src="<?php echo wp_get_attachment_image_src( $person->person_portrait, 'medium' )[0]; ?>">
                 <?php endif; ?>
                 <div class="card-body">
                     <<?php echo $name_element; ?> class="card-title"><?php echo $person->post_title; ?></<?php echo $name_element; ?>>
