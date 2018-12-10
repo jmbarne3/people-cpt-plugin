@@ -34,6 +34,7 @@ if ( ! class_exists( 'JMB_Person_Common' ) ) {
                 <?php endif; ?>
                 <div class="card-body">
                     <<?php echo $name_element; ?> class="card-title"><?php echo $person->post_title; ?></<?php echo $name_element; ?>>
+                    <p class="text-primary text-uppercase font-family-condensed font-weight-bold"><?php echo $person->person_title; ?></p>
                     <p class="card-text"><?php echo $person->post_content; ?></p>
                 </div>
                 <div class="card-footer">
