@@ -40,7 +40,7 @@ if ( ! class_exists( 'JMB_People_Person_Shortcode' ) ) {
             if ( $atts['name'] ) {
 
                 $args = array(
-                    'post_type'      => 'people',
+                    'post_type'      => 'person',
                     'posts_per_page' => 1,
                     'title'          => $atts['name']
                 );
@@ -55,7 +55,7 @@ if ( ! class_exists( 'JMB_People_Person_Shortcode' ) ) {
 
             if ( $atts['slug'] ) {
                 $args = array(
-                    'post_type'      => 'people',
+                    'post_type'      => 'person',
                     'posts_per_page' => 1,
                     'name'           => $atts['slug']
                 );

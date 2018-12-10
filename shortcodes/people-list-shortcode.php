@@ -40,7 +40,7 @@ if ( ! class_exists( 'JMB_People_List_Shortcode' ) ) {
             unset( $atts['layout'] );
 
             $args = array(
-                'post_type'      => 'people',
+                'post_type'      => 'person',
                 'posts_per_page' => -1,
                 'orderby'        => 'order',
                 'order'          => 'ASC'

@@ -19,7 +19,7 @@ if ( ! class_exists( 'JMB_People_PostType' ) ) {
          */
         public static function register_posttype() {
             $labels = apply_filters( 'jmb_people_labels', self::$labels );
-            register_post_type( 'people', self::args( $labels ) );
+            register_post_type( 'person', self::args( $labels ) );
         }
 
         /**
