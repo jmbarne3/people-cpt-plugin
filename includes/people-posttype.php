@@ -130,29 +130,29 @@ if ( ! class_exists( 'JMB_People_PostType' ) ) {
         public static function add_fields() {
             if ( function_exists( 'acf_add_local_field_group' ) ) {
                 acf_add_local_field_group( array(
-                    'title'  => 'People Fields',
+                    'title'  => 'Person Fields',
                     'fields' => array(
                         array(
-                            'key'           => 'field_jmb_people_title',
+                            'key'           => 'field_jmb_person_title',
                             'label'         => 'Title',
-                            'name'          => 'people_title',
+                            'name'          => 'person_title',
                             'type'          => 'text',
                             'instructions'  => 'Enter the title of the person. Can be left blank.',
                             'required'      => 0,
                             'placeholder' => 'Senior Pastor',
                         ),
                         array(
-                            'key'          => 'field_jmb_people_email',
+                            'key'          => 'field_jmb_person_email',
                             'label'        => 'Email',
-                            'name'         => 'people_email',
+                            'name'         => 'person_email',
                             'type'         => 'email',
                             'instructions' => 'Enter the email of the person. Can be left blank.',
                             'required'     => 0,
                         ),
                         array(
-                            'key'          => 'field_jmb_people_twitter_profile',
+                            'key'          => 'field_jmb_person_twitter_profile',
                             'label'        => 'Twitter Profile',
-                            'name'         => 'people_twitter_profile',
+                            'name'         => 'person_twitter_profile',
                             'type'         => 'url',
                             'instructions' => 'Enter the URL of the twitter profile of the person. Can be left blank.',
                             'required'     => 0,
@@ -163,7 +163,7 @@ if ( ! class_exists( 'JMB_People_PostType' ) ) {
                             array(
                                 'param'    => 'post_type',
                                 'operator' => '==',
-                                'value'    => 'people',
+                                'value'    => 'person',
                             ),
                         ),
                     )
