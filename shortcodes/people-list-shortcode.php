@@ -23,11 +23,13 @@ if ( ! class_exists( 'JMB_People_List_Shortcode' ) ) {
          */
         public static function callback( $atts, $content='' ) {
             $atts = shortcode_atts( array(
-                'layout'     => 'default',
-                'categories' => null,
-                'limit'      => null,
-                'offset'     => null
-            ), $atts );
+                'layout'        => 'default',
+                'person_layout' => 'default',
+                'name_element'  => 'h3',
+                'categories'    => null,
+                'limit'         => null,
+                'offset'        => null
+            ), $atts, 'people-list' );
 
             /**
              * Get the posts to send to the layout function
@@ -38,9 +40,10 @@ if ( ! class_exists( 'JMB_People_List_Shortcode' ) ) {
             unset( $atts['layout'] );
 
             $args = array(
-                'post_type'   => 'people',
-                'orderby'     => 'order',
-                'order'       => 'ASC'
+                'post_type'      => 'people',
+                'posts_per_page' => -1,
+                'orderby'        => 'order',
+                'order'          => 'ASC'
             );
 
             if ( $atts['categories'] ) {

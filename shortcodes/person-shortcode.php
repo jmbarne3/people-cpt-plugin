@@ -3,14 +3,14 @@
  * Defines the `person` shortcode.
  */
 if ( ! class_exists( 'JMB_People_Person_Shortcode' ) ) {
-    class JMB_People_Person_Shortcode {
+    class JMB_Person_Shortcode {
         /**
          * Registers the `person` shortcode.
          * @author Jim Barnes
          * @since 1.0.0
          */
         public static function register_shortcode() {
-            add_shortcode( 'person', array( 'JMB_People_Person_Shortcode', 'callback' ) );
+            add_shortcode( 'person', array( 'JMB_Person_Shortcode', 'callback' ) );
         }
 
         /**
@@ -38,10 +38,11 @@ if ( ! class_exists( 'JMB_People_Person_Shortcode' ) ) {
             $person = null;
 
             if ( $atts['name'] ) {
+
                 $args = array(
                     'post_type'      => 'people',
                     'posts_per_page' => 1,
-                    'post_title'     => $atts['name']
+                    'title'          => $atts['name']
                 );
 
                 $people = get_posts( $args );
@@ -56,7 +57,7 @@ if ( ! class_exists( 'JMB_People_Person_Shortcode' ) ) {
                 $args = array(
                     'post_type'      => 'people',
                     'posts_per_page' => 1,
-                    'post_name'      => $atts['slug']
+                    'name'           => $atts['slug']
                 );
 
                 $people = get_posts( $args );

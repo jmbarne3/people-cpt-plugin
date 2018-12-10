@@ -18,7 +18,10 @@ define( 'JMB_PEOPLE__PLUGIN_FILE', __FILE__ );
 
 
 include_once 'includes/people-posttype.php';
+include_once 'common/person-common.php';
 include_once 'common/people-list-common.php';
+include_once 'shortcodes/person-shortcode.php';
+include_once 'shortcodes/people-list-shortcode.php';
 
 if ( ! function_exists( 'jmb_people_plugin_activation' ) ) {
     function jmb_people_plugin_activation() {
@@ -40,6 +43,9 @@ if ( ! function_exists( 'jmb_people_init' ) ) {
         add_action( 'init', array( 'JMB_People_PostType', 'register_posttype' ), 10, 0 );
         add_action( 'acf/init', array( 'JMB_People_PostType', 'add_fields' ), 10, 0 );
         add_action( 'posts_results', array( 'JMB_People_PostType', 'add_meta_data' ), 10, 1 );
+
+        add_action( 'init', array( 'JMB_Person_Shortcode', 'register_shortcode' ), 10, 0 );
+        add_action( 'init', array( 'JMB_People_List_Shortcode', 'register_shortcode' ), 10, 0 );
     }
 
     add_action( 'plugins_loaded', 'jmb_people_init' );
