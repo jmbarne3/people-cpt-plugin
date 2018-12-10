@@ -19,7 +19,7 @@ if ( ! class_exists( 'JMB_People_PostType' ) ) {
          */
         public static function register_posttype() {
             $labels = apply_filters( 'jmb_people_labels', self::$labels );
-            register_post_type( $labels['slug'], self::args( $labels ) );
+            register_post_type( 'people', self::args( $labels ) );
         }
 
         /**
@@ -72,6 +72,7 @@ if ( ! class_exists( 'JMB_People_PostType' ) ) {
         public static function args( $labels ) {
             $singular = $labels['singular'];
             $plural   = $labels['plural'];
+            $slug     = $labels['slug'];
 
             $args = array(
 				'label'                 => __( $singular, self::$text_domain ),
@@ -91,7 +92,11 @@ if ( ! class_exists( 'JMB_People_PostType' ) ) {
 				'has_archive'           => true,
 				'exclude_from_search'   => false,
 				'publicly_queryable'    => true,
-				'capability_type'       => 'post',
+                'capability_type'       => 'post',
+                'rewrite'               => array(
+                    'slug'       => $slug,
+                    'with_front' => false
+                )
             );
 
             $args = apply_filters( 'jmb_people_post_type_args', $args );
@@ -164,6 +169,23 @@ if ( ! class_exists( 'JMB_People_PostType' ) ) {
                     )
                 ));
             }
+        }
+
+        /**
+         * The function that adds additional meta data to the post object
+         * @author Jim Barnes
+         * @since 1.0.0
+         * @param array $posts The array of posts
+         * @return array
+         */
+        public static function add_meta_data( $posts ) {
+            foreach( $posts as $post ) {
+                $post->people_title           = get_post_meta( $post->ID, 'people_title', true );
+                $post->people_email           = get_post_meta( $post->ID, 'people_email', true );
+                $post->people_twitter_profile = get_post_meta( $post->ID, 'people_twitter_profile', true );
+            }
+
+            return $posts;
         }
     }
 }
