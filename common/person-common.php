@@ -16,8 +16,8 @@ if ( ! class_exists( 'JMB_Person_Common' ) ) {
         public static function display_person( $person, $layout='default', $args=array() ) {
             $output = JMB_Person_Common::display_person_default( $person, $args );
 
-            if ( has_filter( `display_person_{$layout}` ) ) {
-                $output = apply_filters( `jmb_display_person_{$layout}`, $output, $person, $args );
+            if ( has_filter( "jmb_display_person_{$layout}" ) ) {
+                $output = apply_filters( "jmb_display_person_{$layout}", $output, $person, $args );
             }
 
             return $output;
@@ -38,7 +38,7 @@ if ( ! class_exists( 'JMB_Person_Common' ) ) {
                     <p class="card-text"><?php echo $person->post_content; ?></p>
                 </div>
                 <div class="card-footer">
-                    <a href="<?php echo get_permalink( $person->ID ); ?>" class="btn btn-primary btn-block">Read More</a>
+                    <a href="<?php echo get_permalink( $person->ID ); ?>" class="btn btn-complimentary btn-block">Read More</a>
                 </div>
             </div>
         <?php

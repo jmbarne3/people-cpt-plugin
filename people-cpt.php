@@ -36,6 +36,8 @@ if ( ! function_exists( 'jmb_people_plugin_deactivation' ) ) {
     function jmb_people_plugin_deactivation() {
         flush_rewrite_rules();
     }
+
+    register_deactivation_hook( JMB_PEOPLE__PLUGIN_FILE, 'jmb_people_plugin_activation' );
 }
 
 if ( ! function_exists( 'jmb_people_init' ) ) {
