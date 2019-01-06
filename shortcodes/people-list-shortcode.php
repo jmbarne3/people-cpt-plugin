@@ -42,7 +42,7 @@ if ( ! class_exists( 'JMB_People_List_Shortcode' ) ) {
             $args = array(
                 'post_type'      => 'person',
                 'posts_per_page' => -1,
-                'orderby'        => 'order',
+                'orderby'        => 'menu_order',
                 'order'          => 'ASC'
             );
 

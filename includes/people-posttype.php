@@ -78,7 +78,7 @@ if ( ! class_exists( 'JMB_People_PostType' ) ) {
 				'label'                 => __( $singular, self::$text_domain ),
 				'description'           => __( 'Used for defining staff members or other people.', self::$text_domain ),
 				'labels'                => self::labels( $labels ),
-				'supports'              => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields' ),
+				'supports'              => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes' ),
 				'taxonomies'            => self::taxonomies(),
 				'hierarchical'          => false,
 				'public'                => true,
