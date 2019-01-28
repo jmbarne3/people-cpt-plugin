@@ -112,7 +112,7 @@ if ( ! class_exists( 'JMB_People_PostType' ) ) {
          */
         public static function taxonomies() {
             $taxonomies = array(
-                'categories'
+                'category'
             );
 
             $taxonomies = apply_filters( 'jmb_people_taxonomies', $taxonomies );
